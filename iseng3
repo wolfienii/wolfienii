@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mau Jadi Pacar Aku?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #ff66b2;
+        }
+
+        .questions {
+            margin: 20px;
+            font-size: 1.2em;
+            color: #660033;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .questions p {
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .yes-btn {
+            background-color: #ff66b2;
+            color: white;
+        }
+
+        .no-btn {
+            background-color: #ff99cc;
+            color: white;
+            position: relative;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff0066;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mau Jadi Pacar Aku?</h1>
+
+    <div class="questions" id="questions">
+        <p>Kamu yakin nggak mau jadi pacar aku? 😢</p>
+        <p>Kita bisa selalu bersama dan aku bakal selalu membuatmu bahagia, lho. 💖</p>
+        <p>Kamu tahu kan aku selalu perhatian sama kamu? 🌹</p>
+        <p>Kita bisa nonton film bareng, makan malam romantis, dan jalan-jalan tiap akhir pekan! 🎥🍕</p>
+        <p>Kalau kamu butuh seseorang yang selalu ada, aku pasti orang yang tepat! 💪</p>
+        <p>Aku janji bakal bikin harimu lebih cerah dan penuh senyuman. 😊</p>
+        <p>Kamu nggak penasaran gimana rasanya kalau kita jadian? 🤔</p>
+        <p>Kita bakal jadi pasangan yang paling bahagia, percaya deh! 💑</p>
+        <p>Kalau kamu jadi pacar aku, aku bakal selalu dukung semua impianmu! 🌟</p>
+        <p>Aku bakal selalu ada buat kamu, di saat senang maupun sedih. ❤️</p>
+    </div>
+
+    <div class="button-container">
+        <button class="yes-btn" onclick="confirmYes()">Yes</button>
+        <button class="no-btn" onclick="showNextQuestion()">No</button>
+    </div>
+
+    <div class="hidden-message" id="hiddenMessage">
+        Yeay! Aku udah tahu kamu bakal bilang Yes! Senang banget bisa jadian sama kamu! 💖😊
+    </div>
+
+    <script>
+        let questionIndex = 0;
+        const questions = document.querySelectorAll('.questions p');
+
+        function showNextQuestion() {
+            // Sembunyikan semua pertanyaan dulu
+            questions.forEach((q) => q.style.display = 'none');
+            
+            // Tampilkan pertanyaan berikutnya
+            questions[questionIndex].style.display = 'block';
+
+            // Update index ke pertanyaan berikutnya
+            questionIndex++;
+
+            // Jika sudah sampai di pertanyaan terakhir, ulangi lagi dari pertanyaan pertama
+            if (questionIndex >= questions.length) {
+                questionIndex = 0;
+            }
+        }
+
+        function confirmYes() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+            document.querySelector('.button-container').style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>
